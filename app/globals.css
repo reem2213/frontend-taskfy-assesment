@@ -1,42 +1,210 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+th,
+td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+  position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.resizable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resize-handle {
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+}
+
+.resize-handle:hover {
+  background-color: #ccc;
+}
+
+tr[draggable="true"] {
+  cursor: move;
+}
+
+tr.dragged {
+  opacity: 0.5;
+}
+
+tr.dragged-over {
+  background-color: #e0e0e0;
+}
+
+.view-toggle {
+  margin-bottom: 20px;
+}
+
+.view-toggle button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.view-toggle button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.calendar-task {
+  background-color: #007bff;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.gantt-chart {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.gantt-header {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.gantt-header-cell {
+  flex: 1;
+  padding: 5px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  font-size: 12px;
+  /* min-width: 50px; */
+}
+
+.gantt-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.gantt-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.gantt-row-label {
+  min-width: 150px;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.gantt-bar-container {
+  flex: 1;
+  position: relative;
+  height: 30px;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+}
+
+.gantt-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.button {
+  padding: 8px 16px;
+  margin: 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button-delete {
+  background-color: #ff4d4d; 
+  color: white;
+}
+
+.button-edit {
+  background-color: #4caf50; 
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button-save {
+  background-color: #4caf50; 
+  color: white;
+}
+
+.button-cancel {
+  background-color: #ff9800;
+  color: white;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  margin-bottom: 20px;
+}
+
+
+.filter-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.filter-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); 
 }
